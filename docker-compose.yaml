@@ -1,0 +1,14 @@
+version: "3.10"
+services:
+  sim:
+    build:
+      context: ./
+      dockerfile: ./docker/sim.Dockerfile
+    image: auto-bot-sim
+    network_mode: host
+    user: default-user
+    volumes:
+    - ./catkin_ws:/home/default-user/ws/src
+    environment:
+    - DISPLAY=:0
+    command: /idle.bash
